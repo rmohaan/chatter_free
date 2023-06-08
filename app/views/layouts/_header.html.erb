@@ -1,22 +1,24 @@
 <div class="ui inverted menu">
   <div class="ui container">
-    <div class="header item">
-      Chatroom
-    </div>
-    <a class="item">
+    <%= link_to "Chatroom", root_path, class: "header item" %>
+    <a class="item" href="/">
     Messages
   </a>
   <div class="right menu">
     <div class="ui dropdown item">
       Account <i class="dropdown icon"></i>
       <div class="menu">
-        <a class="item">Log in</a>
+        <div class="item">
+          <%= link_to "Log in", login_path, class: "ui primary"%>
+        </div>
         <a class="item">Log out</a>
-        <a class="item">Sign up</a>
+        <div class="item">
+          <%= link_to "Sign up", login_path, class: "ui primary"%>
+        </div>
       </div>
     </div>
     <div class="item">
-        <div class="ui primary button">Sign Up</div>
+      <%= link_to "Sign up", login_path, class: "ui primary button"%>
     </div>
   </div>
   </div>
