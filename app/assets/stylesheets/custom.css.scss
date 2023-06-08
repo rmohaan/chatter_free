@@ -8,3 +8,17 @@
 .chatbox {
     height: 450px;
 }
+
+.send-button {
+    background-color: white;
+    border-style: none;
+}
+
+.send-icon {
+    font-size: large !important;
+}
+
+#content-overflow {
+    height: 15em;
+    overflow: overlay;
+}

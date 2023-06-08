@@ -18,6 +18,18 @@
 //= require turbolinks
 //= require_tree .
 
+scroll_bottom = function () {
+  let msgContainer = $("#content-overflow")
+  if (msgContainer.length > 0) {
+    msgContainer.scrollTop(msgContainer[0].scrollHeight);
+  }
+}
+
 $(document).on('turbolinks:load', function() {
     $('.ui.dropdown').dropdown();
-})
+    $('.message .close').on('click', function() {
+      $(this).closest('.message').transition('fade');
+    });
+    scroll_bottom();
+});
+

@@ -1,43 +1,28 @@
 <h2 class="ui center aligned medium icon header">
   <i class="circular users icon icon-color"></i>
-  Chatter Free
+  Chat Colony
 </h2>
+
+<%= render "layouts/notifications" %>
 
 <div class="ui two column grid center aligned">
   <div class="tweleve wide column">
     <div class="ui fluid raised card chatbox">
-      <div class="content">
-        <div class="ui feed">
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                <em>Elliot Fu</em>: Message
-              </div>
-            </div>
-          </div>
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                <a>Stevie Feliciano</a> added <a>Elliot Fu</a> as a friend
-              </div>
-            </div>
-          </div>
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                <a>Helen Troy</a> added <a>Christian Rocha</a> as a friend
-              </div>
-            </div>
-          </div>
+      <div class="content" id="content-overflow">
+        <div class="ui feed" id="message-container">
+          <%= render @messages %>
         </div>
       </div>
       <div class="extra content">
-        <form class="ui reply form">
+        <%= form_for(:message, html: {class: "ui reply form", role: "form"},url: root_path, method: :post, remote: true) do |form| %>
           <div class="ui fluid icon input">
-            <input type="text" placeholder="Type your message">
-            <i class="bordered inverted edit icon orange"></i>
+            <%= form.text_field :body, placeholder: "Type your message", id: "input-message-field" %>
+            
+            <%= form.button nil, class: "send-button" do %>
+              <i class="bordered inverted chevron circle right icon orange send-icon"></i>
+            <% end %>
           </div>
-        </form>
+        <% end %>
       </div>
     </div> 
   </div> 
@@ -45,15 +30,7 @@
     <div class="ui fluid raised card chatbox">
       <div class="content">
         <div class="ui fluid inverted vertical menu">
-          <a class="active item">
-            Home
-          </a>
-          <a class="item">
-            Messages
-          </a>
-          <a class="item">
-            Friends
-          </a>
+          <%= render @users %>
         </div>
       </div>
     </div>
